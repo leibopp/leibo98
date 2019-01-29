@@ -6,7 +6,11 @@ import router from './router'
 import store from './vuex'
 
 Vue.config.productionTip = false
-
+router.beforeEach((to, from, next) => {
+  // console.log(to,from)
+  Vue.prototype.$history = from
+  next();
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
